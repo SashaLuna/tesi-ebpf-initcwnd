@@ -66,7 +66,7 @@ percorso.
 ## Requisiti
 
 Il banco gira dentro una macchina virtuale Linux (durante il lavoro: Lima su
-macOS, kernel 6.17 su aarch64). Servono:
+macOS, kernel 6.8 su aarch64). Servono:
 
 - un kernel compilato con `CONFIG_DEBUG_INFO_BTF=y` — `/sys/kernel/btf/vmlinux`
   deve esistere, perché da lì si genera `vmlinux.h`;
@@ -142,8 +142,19 @@ vengono dalla finestra e non dal fatto che un programma eBPF sta agganciato al
 cgroup.
 
 **Taratura** (`risultati/taratura/`): l'esplorazione con cui è stato scelto il
-valore della finestra statica alta, da 10 a 96 segmenti su oggetti da 30 KB e
-200 KB.
+valore della finestra statica alta. Sono state provate sette finestre — 10, 16,
+24, 32, 48, 64 e 96 segmenti — su oggetti da 30 KB e 200 KB, 180 flussi
+ciascuna, confrontando i risultati con la linea di base coppia per coppia
+(taglia, client) anziché su un aggregato.
+
+Ne sono usciti **24 segmenti**, il valore usato da `statichigh`: il tempo di
+completamento mediano scende da 80,5 ms a 43,4 ms e oltre quella soglia non
+migliora più, mentre da 48 segmenti in su cominciano a comparire ritrasmissioni
+sul client a RTT intermedio (1 flusso su 30 a 48, 2 a 64, 15 a 96). Il client
+più vicino ritrasmette invece a ogni finestra, compresa quella predefinita: sul
+suo percorso è lo slow start a superare la capacità, non la raffica iniziale.
+La raccomandazione, i tempi e le bande misurate con iperf3 stanno in
+`risultati/campagna/calibration.json`.
 
 ## Analisi
 
