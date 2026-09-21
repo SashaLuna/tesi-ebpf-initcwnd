@@ -34,29 +34,34 @@ risultati/
   taratura/           esplorazione della finestra statica alta
 ```
 
-## Le sette configurazioni e i quattro programmi
+## Le configurazioni e i quattro programmi
 
 Le configurazioni messe a confronto non corrispondono una a uno ai programmi:
 tre di esse si ottengono dallo stesso caricatore in sola osservazione,
 cambiando ciò che sta *intorno* a TCP anziché il programma.
+
+Queste sei formano la griglia della campagna:
 
 | configurazione | finestra iniziale | come è ottenuta |
 |---|---|---|
 | `static10` | 10 segmenti | route predefinita, caricatore in sola osservazione |
 | `metrics` | 10 segmenti | come sopra, con la cache `tcp_metrics` lasciata attiva |
 | `statichigh` | valore della taratura | `ip route … initcwnd N` sulla route, stesso caricatore |
-| `statichigh-bpf` | stesso valore | imposto da eBPF (`politiche/statichigh-bpf`) |
 | `ewma` | stimata | media mobile esponenziale, α = 1/4 |
 | `lossaware` | stimata | come `ewma`, dimezzata dove ci sono ritrasmissioni |
 | `lossaware-disc` | stimata | come sopra, con il discriminante `--crescita-max` |
 
-Due osservazioni che la tabella rende evidenti. `statichigh` e `statichigh-bpf`
-applicano **la stessa finestra per due vie diverse**: il confronto fra le due
-isola il costo del percorso eBPF dall'effetto della finestra, ed è la ragione
-per cui esiste la misura in `risultati/percorso-ebpf/`. E `lossaware` e
-`lossaware-disc` sono lo **stesso programma** con un'opzione in più: il
-discriminante distingue le perdite dovute alla raffica iniziale da quelle in
-cui è lo slow start a superare la capacità del percorso.
+Una settima configurazione, `statichigh-bpf`, sta **fuori dalla griglia** e
+compare solo nella misura di controllo: applica la stessa finestra di
+`statichigh`, ma imponendola da eBPF (`politiche/statichigh-bpf`) invece che
+sulla route. Il confronto fra le due isola il costo del percorso eBPF
+dall'effetto della finestra, ed è la ragione per cui esiste
+`risultati/percorso-ebpf/`.
+
+Si noti infine che `lossaware` e `lossaware-disc` sono lo **stesso programma**
+con un'opzione in più: il discriminante distingue le perdite dovute alla
+raffica iniziale da quelle in cui è lo slow start a superare la capacità del
+percorso.
 
 ## Requisiti
 
@@ -109,9 +114,10 @@ tutte le opzioni.
 ## I dati
 
 **Campagna definitiva** (`risultati/campagna/`), eseguita il 10-11 settembre
-2026: sette configurazioni, tre valori di banda (20, 50, 100 Mbit/s), sei
-taglie di oggetto (1 KB, 10 KB, 30 KB, 200 KB, 1 MB, 10 MB), dieci iterazioni
-per cella. In tutto 1080 celle e 48 600 connessioni TCP, tutte ricostruite
+2026: le sei configurazioni della griglia, tre valori di banda (20, 50,
+100 Mbit/s), sei taglie di oggetto (1 KB, 10 KB, 30 KB, 200 KB, 1 MB, 10 MB),
+dieci iterazioni per cella — 6 × 3 × 6 × 10 = 1080 celle, per un totale di
+48 600 connessioni TCP, tutte ricostruite
 dalla giunzione fra la misura lato client e quella lato server, senza scarti.
 
 - `connessioni.csv` — una riga per connessione TCP, giunzione completa;
