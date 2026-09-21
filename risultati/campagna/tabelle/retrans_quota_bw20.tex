@@ -1,0 +1,34 @@
+\begin{table}[htbp]
+  \centering
+  \caption{Quota di flussi con almeno una ritrasmissione (\%), collo di bottiglia a 20 Mbit/s.}
+  \label{tab:retransflow-20}
+  \begin{tabular}{llrrrrrr}
+    \toprule
+    Oggetto & Client & IW = 10 & tcp\_metrics & IW statica alta & eBPF EWMA & eBPF loss-aware & eBPF loss-aware (discr.) \\
+    \midrule
+    1K & h2 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+     & h3 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+     & h4 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+    \addlinespace
+    10K & h2 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+     & h3 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+     & h4 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+    \addlinespace
+    30K & h2 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+     & h3 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+     & h4 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+    \addlinespace
+    200K & h2 & 0.0 & 0.0 & 0.0 & 70.7 & 13.3 & 13.3 \\
+     & h3 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+     & h4 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+    \addlinespace
+    1M & h2 & 0.0 & 0.0 & 0.0 & 68.7 & 13.3 & 13.3 \\
+     & h3 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+     & h4 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+    \addlinespace
+    10M & h2 & 0.0 & 0.7 & 0.0 & 70.7 & 13.3 & 13.3 \\
+     & h3 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+     & h4 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

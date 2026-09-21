@@ -1,0 +1,34 @@
+\begin{table}[htbp]
+  \centering
+  \caption{Novantacinquesimo percentile del FCT, in ms, misurato dal SYN all'ultimo byte; collo di bottiglia a 100 Mbit/s.}
+  \label{tab:fct-p95-100}
+  \begin{tabular}{llrrrrrr}
+    \toprule
+    Oggetto & Client & IW = 10 & tcp\_metrics & IW statica alta & eBPF EWMA & eBPF loss-aware & eBPF loss-aware (discr.) \\
+    \midrule
+    1K & h2 & 14.5 & 14.4 & 14.5 & 14.5 & 14.5 & 14.7 \\
+     & h3 & 61.7 & 61.2 & 61.2 & 61.2 & 61.3 & 61.3 \\
+     & h4 & 138.8 & 137.4 & 137.7 & 138.2 & 137.3 & 138.4 \\
+    \addlinespace
+    10K & h2 & 14.6 & 14.3 & 14.5 & 14.4 & 14.5 & 14.5 \\
+     & h3 & 61.5 & 61.0 & 60.9 & 61.1 & 60.8 & 61.4 \\
+     & h4 & 137.2 & 139.5 & 138.5 & 138.3 & 137.9 & 137.4 \\
+    \addlinespace
+    30K & h2 & 23.3 & 22.7 & 16.3 & 20.8 & 21.0 & 20.9 \\
+     & h3 & 92.9 & 92.8 & 61.3 & 84.0 & 86.0 & 81.8 \\
+     & h4 & 205.7 & 201.9 & 137.3 & 186.6 & 189.9 & 188.8 \\
+    \addlinespace
+    200K & h2 & 48.4 & 48.7 & 40.2 & 47.9 & 55.1 & 54.7 \\
+     & h3 & 202.5 & 199.4 & 125.4 & 164.5 & 157.9 & 165.3 \\
+     & h4 & 440.1 & 449.9 & 337.7 & 314.3 & 330.5 & 331.9 \\
+    \addlinespace
+    1M & h2 & 125.1 & 124.7 & 110.8 & 135.4 & 124.7 & 124.9 \\
+     & h3 & 567.3 & 562.7 & 226.6 & 279.9 & 564.3 & 347.7 \\
+     & h4 & 1239.9 & 1253.9 & 654.4 & 619.0 & 718.4 & 653.1 \\
+    \addlinespace
+    10M & h2 & 942.8 & 942.1 & 924.8 & 948.2 & 942.6 & 943.0 \\
+     & h3 & 1685.8 & 1680.5 & 1053.0 & 1495.0 & 1677.6 & 1683.8 \\
+     & h4 & 3506.7 & 3536.9 & 2175.2 & 1838.3 & 2910.4 & 2787.0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

@@ -1,0 +1,34 @@
+\begin{table}[htbp]
+  \centering
+  \caption{Finestra iniziale media effettivamente applicata (segmenti), collo di bottiglia a 20 Mbit/s.}
+  \label{tab:iw-20}
+  \begin{tabular}{llrrrrrr}
+    \toprule
+    Oggetto & Client & IW = 10 & tcp\_metrics & IW statica alta & eBPF EWMA & eBPF loss-aware & eBPF loss-aware (discr.) \\
+    \midrule
+    1K & h2 & 10.0 & 10.0 & 24.0 & 10.0 & 10.0 & 10.0 \\
+     & h3 & 10.0 & 10.0 & 24.0 & 10.0 & 10.0 & 10.0 \\
+     & h4 & 10.0 & 10.0 & 24.0 & 10.0 & 10.0 & 10.0 \\
+    \addlinespace
+    10K & h2 & 10.0 & 10.0 & 24.0 & 10.0 & 10.0 & 10.0 \\
+     & h3 & 10.0 & 10.0 & 24.0 & 10.0 & 10.0 & 10.0 \\
+     & h4 & 10.0 & 10.0 & 24.0 & 10.0 & 10.0 & 10.0 \\
+    \addlinespace
+    30K & h2 & 10.0 & 10.0 & 24.0 & 21.2 & 21.2 & 21.2 \\
+     & h3 & 10.0 & 10.0 & 24.0 & 21.2 & 21.2 & 21.2 \\
+     & h4 & 10.0 & 10.0 & 24.0 & 21.2 & 21.2 & 21.2 \\
+    \addlinespace
+    200K & h2 & 10.0 & 10.0 & 24.0 & 32.6 & 25.2 & 24.9 \\
+     & h3 & 10.0 & 10.0 & 24.0 & 82.7 & 82.5 & 82.4 \\
+     & h4 & 10.0 & 10.0 & 24.0 & 101.8 & 103.3 & 100.3 \\
+    \addlinespace
+    1M & h2 & 10.0 & 10.0 & 24.0 & 32.8 & 25.4 & 24.7 \\
+     & h3 & 10.0 & 10.0 & 24.0 & 82.8 & 84.4 & 84.3 \\
+     & h4 & 10.0 & 10.0 & 24.0 & 103.3 & 101.7 & 102.5 \\
+    \addlinespace
+    10M & h2 & 10.0 & 10.0 & 24.0 & 32.7 & 24.8 & 25.1 \\
+     & h3 & 10.0 & 10.0 & 24.0 & 82.7 & 82.5 & 82.5 \\
+     & h4 & 10.0 & 10.0 & 24.0 & 103.3 & 103.2 & 103.1 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

@@ -1,0 +1,25 @@
+# artefatti di compilazione eBPF: si rigenerano con make
+*.o
+*.skel.h
+vmlinux.h
+.output/
+augmenter
+
+# versioni di lavoro
+*.bak
+*.vecchia
+*.prima-della-patch
+*.prima-della-pulizia
+*~
+
+# python
+__pycache__/
+*.pyc
+
+# runtime del banco
+_nginx/
+_docroot/
+_calib/
+console.log
+
+.DS_Store

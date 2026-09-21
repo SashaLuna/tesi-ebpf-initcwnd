@@ -1,0 +1,34 @@
+\begin{table}[htbp]
+  \centering
+  \caption{Tempo di completamento del flusso (FCT) mediano, in ms, misurato dal SYN all'ultimo byte; collo di bottiglia a 50 Mbit/s.}
+  \label{tab:fct-med-50}
+  \begin{tabular}{llrrrrrr}
+    \toprule
+    Oggetto & Client & IW = 10 & tcp\_metrics & IW statica alta & eBPF EWMA & eBPF loss-aware & eBPF loss-aware (discr.) \\
+    \midrule
+    1K & h2 & 13.3 & 13.4 & 13.3 & 13.4 & 13.3 & 13.4 \\
+     & h3 & 56.0 & 56.7 & 56.5 & 56.7 & 56.8 & 56.4 \\
+     & h4 & 127.1 & 126.7 & 128.4 & 128.4 & 128.2 & 129.2 \\
+    \addlinespace
+    10K & h2 & 14.7 & 14.7 & 14.7 & 14.8 & 14.7 & 14.7 \\
+     & h3 & 57.2 & 56.6 & 56.9 & 57.3 & 57.4 & 57.1 \\
+     & h4 & 127.4 & 127.5 & 128.6 & 127.8 & 128.2 & 127.3 \\
+    \addlinespace
+    30K & h2 & 22.6 & 22.5 & 18.1 & 18.1 & 18.2 & 18.2 \\
+     & h3 & 86.2 & 86.0 & 59.3 & 59.3 & 59.7 & 59.3 \\
+     & h4 & 190.7 & 191.4 & 128.8 & 130.1 & 129.9 & 129.7 \\
+    \addlinespace
+    200K & h2 & 53.2 & 53.4 & 47.9 & 49.5 & 48.8 & 48.4 \\
+     & h3 & 152.9 & 153.7 & 123.5 & 135.8 & 116.4 & 116.6 \\
+     & h4 & 345.3 & 338.3 & 265.9 & 257.0 & 256.8 & 257.4 \\
+    \addlinespace
+    1M & h2 & 194.5 & 194.4 & 189.0 & 189.9 & 189.8 & 189.7 \\
+     & h3 & 299.7 & 299.4 & 265.1 & 272.1 & 260.0 & 256.1 \\
+     & h4 & 534.4 & 534.5 & 461.1 & 440.7 & 453.4 & 447.4 \\
+    \addlinespace
+    10M & h2 & 1772.4 & 1772.3 & 1767.0 & 1768.0 & 1767.8 & 1767.8 \\
+     & h3 & 1878.8 & 1877.9 & 1843.6 & 1852.7 & 1837.5 & 1833.8 \\
+     & h4 & 2116.2 & 2114.5 & 2039.1 & 2017.6 & 2024.6 & 2017.1 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

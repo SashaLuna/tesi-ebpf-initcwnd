@@ -1,0 +1,34 @@
+\begin{table}[htbp]
+  \centering
+  \caption{Ritrasmissioni medie per connessione, collo di bottiglia a 50 Mbit/s.}
+  \label{tab:retrans-50}
+  \begin{tabular}{llrrrrrr}
+    \toprule
+    Oggetto & Client & IW = 10 & tcp\_metrics & IW statica alta & eBPF EWMA & eBPF loss-aware & eBPF loss-aware (discr.) \\
+    \midrule
+    1K & h2 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+     & h3 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+     & h4 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+    \addlinespace
+    10K & h2 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+     & h3 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+     & h4 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+    \addlinespace
+    30K & h2 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+     & h3 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+     & h4 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+    \addlinespace
+    200K & h2 & 0.00 & 0.00 & 0.00 & 8.09 & 1.34 & 1.33 \\
+     & h3 & 0.00 & 0.00 & 0.00 & 3.07 & 0.41 & 0.44 \\
+     & h4 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+    \addlinespace
+    1M & h2 & 0.00 & 0.00 & 0.00 & 16.84 & 2.03 & 2.11 \\
+     & h3 & 0.01 & 0.02 & 6.51 & 16.97 & 3.47 & 5.23 \\
+     & h4 & 1.03 & 0.13 & 1.08 & 19.65 & 7.59 & 9.39 \\
+    \addlinespace
+    10M & h2 & 0.00 & 0.00 & 0.00 & 16.49 & 2.05 & 2.07 \\
+     & h3 & 0.03 & 0.03 & 6.54 & 17.09 & 3.84 & 6.13 \\
+     & h4 & 0.49 & 1.96 & 2.55 & 22.04 & 7.96 & 8.13 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
