@@ -1,4 +1,4 @@
-# Adattamento della finestra iniziale di congestione TCP con eBPF
+# eBPF per il monitoraggio e l'adattamento delle connessioni TCP: caso di studio sulla finestra iniziale di congestione
 
 Materiale della tesi di laurea triennale in Informatica, Università di Pisa —
 relatrice prof.ssa Paganelli.
